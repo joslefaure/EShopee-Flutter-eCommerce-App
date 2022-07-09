@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:developer';
+
 
 class FirestoreFilesAccess {
   FirestoreFilesAccess._privateConstructor();
@@ -19,8 +21,9 @@ class FirestoreFilesAccess {
   }
 
   Future<String> uploadFileToPath(File file, String path) async {
-    final Reference firestorageRef = FirebaseStorage.instance.ref();
-    final snapshot = await firestorageRef.child(path).putFile(file);
+    final firestorageRef = FirebaseStorage.instance.ref();
+    final fileRef = firestorageRef.child(path);
+    final snapshot = await fileRef.putFile(file);
     final downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
   }

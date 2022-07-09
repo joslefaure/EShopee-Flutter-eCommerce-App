@@ -8,7 +8,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 Future<String> choseImageFromLocalFiles(
   BuildContext context, {
-  int maxSizeInKB = 1024,
+  int maxSizeInKB = 2048,
   int minSizeInKB = 5,
 }) async {
   final PermissionStatus photoPermissionStatus =

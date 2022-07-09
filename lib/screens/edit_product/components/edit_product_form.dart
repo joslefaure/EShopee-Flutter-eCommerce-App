@@ -16,6 +16,7 @@ import 'package:flutter_tags/flutter_tags.dart';
 import 'package:future_progress_dialog/future_progress_dialog.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
+import 'dart:developer';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -645,6 +646,7 @@ class _EditProductFormState extends State<EditProductForm> {
           final imgUploadFuture = FirestoreFilesAccess().uploadFileToPath(
               File(productDetails.selectedImages[i].path),
               ProductDatabaseHelper().getPathForProductImage(productId, i));
+          Logger().w("Helloooo : $ProductDatabaseHelper().getPathForProductImage(productId, i))");
           downloadUrl = await showDialog(
             context: context,
             builder: (context) {

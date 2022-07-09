@@ -17,14 +17,14 @@ class NothingToShowContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: SizeConfig.screenWidth * 0.75,
+      width: SizeConfig.screenWidth * 0.60,
       height: SizeConfig.screenHeight * 0.2,
       child: Column(
         children: [
           SvgPicture.asset(
             iconPath,
             color: kTextColor,
-            width: getProportionateScreenWidth(75),
+            width: getProportionateScreenWidth(60),
           ),
           SizedBox(height: 16),
           Text(
